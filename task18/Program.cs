@@ -1,16 +1,19 @@
 ﻿// Программа, которая по заданному номеру четверти показывает диапозон возможных координат точек в этой четверти.
 
-Console.WriteLine("Введите номер четверти");
-int quarter = Convert.ToInt32(Console.ReadLine());
-string range = Range(quarter);
-string result = range == null ? "Указана неверная четверть" : $"Диапозон возможных координат точек в этой четверти: {range}";
-Console.WriteLine(result);
-string Range(int qua)
-
+string Quarter(int x)
 {
- if (qua == 1) return "x > 0 && y > 0";
- if (qua == 2) return "x < 0 && y > 0";
- if (qua == 3) return "x > 0 && y < 0";
- if (qua == 4) return "x < 0 && y > 0";
- return null; 
+    if (x == 1) return "x > 0, y > 0";
+    if (x == 2) return "x < 0, y > 0";
+    if (x == 3) return "x < 0, y < 0";
+    if (x == 4) return "x > 0, y < 0";
+    return null; //возвращаем пустое значение
 }
+
+Console.WriteLine("Введите номер четверти от 1 до 4");
+Console.Write("четверть: ");
+int x = Convert.ToInt32(Console.ReadLine());
+string quarter = Quarter(x);
+string result = quarter == null
+    ? "введены некоректные данные"
+    : $"значения четверти {quarter}";
+Console.WriteLine(result);

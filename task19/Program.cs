@@ -1,21 +1,34 @@
 ﻿// Программа которая принимает пятизначное число и выесняет, является ли оно палиндромом
 
-Console.WriteLine("Введите пятизначное число");
-int number = Convert.ToInt32(Console.ReadLine());
-
-if (number > 9999 && number < 100000)
+Console.WriteLine("введите пятизначное, целочисленное и положительное число");
+Console.Write("X: ");
+int x = Convert.ToInt32(Console.ReadLine());
+if (x < 0) x = x * -1;
+if (x > 9999 && x < 100000)
 {
-bool check = true;
-
-if (check ? firstNumber == fifthNumber && secondNumber == fifthNumber);
-
-Console.WriteLine( true ? "Число палиндром");  
-
-Console.WriteLine(false ? "Число не палиндром");  
+    if (true == Polidrom(x))
+    {
+        Console.WriteLine($"число {x} является палиндромом");
+    }
+    else
+    {
+        Console.WriteLine($"число {x} не является палиндромом");
+    }
 
 }
+else Console.WriteLine($"ошибка ввода!");
 
-else 
+bool Polidrom(int num)
 {
-    Console.WriteLine("Ошибка, введите, пятизначное число"); 
+    if (num / 10000 == num % 10)
+    {
+        if ((num / 1000 % 10) == (num % 100 / 10))
+        {
+            return true;
+        }
+        Console.WriteLine($"2е цифры не сходятся {num / 1000 % 10} и {num % 100 / 10}");
+        return false;
+    }
+    Console.WriteLine($"1е цифры не сходятся {num / 10000} и {num % 10}");
+    return false;
 }

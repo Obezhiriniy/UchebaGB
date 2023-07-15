@@ -1,18 +1,23 @@
 ﻿// Программа которая принимает на вход число N и выдает таблицу кубов от 1 до N
-Console.WriteLine("Введите положительное целое число");
-int number = Convert.ToInt32(Console.ReadLine());
-if (number > 0)
+
+Console.WriteLine("введите целочисленное положительное число");
+Console.Write("X: ");
+int x = Convert.ToInt32(Console.ReadLine());
+
+if (x > 0)
 {
-    TableSquare(number);
+    TableSquare(x);
 }
-else
+else Console.WriteLine($"ошибка ввода!");
+
+
+
+void TableSquare(int num)
 {
-    Console.WriteLine("Ошибка ввода");
-}
-void TableSquare(int num);
-int count = 1;
-while (count <= num)
-{
-    Console.WriteLine($"{count} {count * count * count}");
-    count++;
+    int count = 1;
+    while (count <= num)
+    {
+        Console.WriteLine($"{count, 3}^3 = {count * count* count, 5}");
+        count++;
+    }
 }
